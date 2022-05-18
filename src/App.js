@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about';
 import './App.css';
+import { useDispatch } from 'react-redux';
+import { languageChange, setLanguage } from './state/feature/reducers';
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch();
+
+  // const lanfn = () => dispatch(languageChange("arrrr"));
+
+  useEffect(() => {
+
+  },[]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        Header
       </header>
+
+      <Routes>
+        <Route default path="/home"  element={<Home />}/>
+        <Route path="/about"  element={<About />}/>
+      </Routes>
+
     </div>
   );
 }
